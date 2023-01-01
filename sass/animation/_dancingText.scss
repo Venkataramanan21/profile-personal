@@ -1,0 +1,14 @@
+@keyframes textDance {
+  0% {
+    transform: skewX(0);
+  }
+  25% {
+    transform: skewX(5deg);
+  }
+  75% {
+    transform: skewX(-5deg);
+  }
+  100% {
+    transform: skewX(0deg);
+  }
+}

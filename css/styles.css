@@ -15,12 +15,12 @@ body {
   line-height: 1.7;
   padding: 0px;
   min-height: 100vh;
-  background-image: linear-gradient(108deg, #ae00ff52, #ff0000ab); }
+  background-image: linear-gradient(108deg, #425f57, #cfff8d); }
 
 .header {
   height: calc(100vh - 3rem);
   width: 100%;
-  background: white;
+  background: #e3ffbd;
   padding: 0.75rem 1rem;
   border-radius: 1rem;
   display: flex;
@@ -30,7 +30,11 @@ body {
 
 .header-text {
   font-size: 3rem;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  transition: all 0.2s; }
+  .header-text:hover {
+    transform-origin: bottom;
+    animation: textDance 1s ease-in-out infinite; }
 
 .container {
   padding: 1.5rem; }
@@ -44,3 +48,13 @@ body {
   height: 70px;
   border-radius: 50%;
   box-shadow: 5px 5px 10px grey; }
+
+@keyframes textDance {
+  0% {
+    transform: skewX(0); }
+  25% {
+    transform: skewX(5deg); }
+  75% {
+    transform: skewX(-5deg); }
+  100% {
+    transform: skewX(0deg); } }
