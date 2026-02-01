@@ -1,8 +1,18 @@
-import React from 'react';
-import { motion } from 'framer-motion';
-import { ArrowUpRight, Zap, Server, Code } from 'lucide-react';
 
-const ProjectCard = ({ project }) => {
+import { motion } from 'framer-motion';
+import { ArrowUpRight, Zap } from 'lucide-react';
+
+interface Project {
+  id: string | number;
+  title: string;
+  category: string;
+  summary: string;
+  impact: string;
+  tags: string[];
+  link?: string;
+}
+
+const ProjectCard = ({ project }: { project: Project }) => {
   return (
     <motion.div 
       whileHover={{ y: -5 }}

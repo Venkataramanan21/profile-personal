@@ -1,7 +1,13 @@
-import React from 'react';
 import { Award } from 'lucide-react';
 
-const AchievementCard = ({ achievement }) => (
+interface Achievement {
+  id: string | number;
+  title: string;
+  date: string;
+  description: string;
+}
+
+const AchievementCard = ({ achievement }: { achievement: Achievement }) => (
   <div className="flex items-start gap-4 p-4 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
     <div className="p-2 bg-yellow-100 text-yellow-600 rounded-lg shrink-0">
       <Award size={24} />

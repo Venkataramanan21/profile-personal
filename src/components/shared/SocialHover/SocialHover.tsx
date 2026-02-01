@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 // Note: You can install lucide-react for nice icons
-import { Github, Linkedin, Instagram, Twitter, Code2, X } from 'lucide-react';
+import { Github, Linkedin, Instagram, Code2 } from 'lucide-react';
 import { PiXLogo } from 'react-icons/pi';
 import Styles from './../HeroTeaser/HeroTeaser.module.css';
 

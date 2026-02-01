@@ -1,8 +1,7 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { Briefcase, MapPin } from 'lucide-react';
+import {  MapPin } from 'lucide-react';
 
-const ExperienceItem = ({ exp, index }) => {
+const ExperienceItem = ({ exp, index }: { exp: any; index: number }) => {
   return (
     <motion.div 
       initial={{ opacity: 0, x: -20 }}
@@ -29,7 +28,7 @@ const ExperienceItem = ({ exp, index }) => {
       </div>
 
       <ul className="space-y-2">
-        {exp.description.map((item, i) => (
+        {exp.description.map((item: string, i: number) => (
           <li key={i} className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed flex items-start gap-2">
             <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-blue-400 shrink-0" />
             {item}

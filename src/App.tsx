@@ -21,26 +21,6 @@ function App() {
       <Footer/>
     </div>
   )
-
-  return (
-    <>
-      {/* <AnimatePath /> */}
-<div className="min-h-screen bg-slate-50 text-slate-800">
-      <HeroTeaser />
-      {/* <Experience /> */}
-
-      <Portfolio />
-      </div>
-
-      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.map(p => <ProjectCard key={p.id} project={p} />)}
-      </div>
-
-
-      <AchievementCard achievement={achievements} /> */}
-      
-    </>
-  );
 }
 
 export default App;

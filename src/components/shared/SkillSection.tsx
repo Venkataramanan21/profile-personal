@@ -1,6 +1,5 @@
-import React from 'react';
 
-const SkillGroup = ({ title, skills }) => (
+const SkillGroup = ({ title, skills }: { title: string; skills: string[] }) => (
   <div className="space-y-3">
     <h4 className="text-sm font-bold text-slate-400 uppercase tracking-wider">{title}</h4>
     <div className="flex flex-wrap gap-2">
@@ -16,7 +15,7 @@ const SkillGroup = ({ title, skills }) => (
   </div>
 );
 
-const SkillsSection = ({ skillsData }) => {
+const SkillsSection = ({ skillsData }: { skillsData: { [key: string]: string[] } }) => {
   return (
     <div className="bg-slate-50 dark:bg-slate-900/50 p-8 rounded-2xl">
       <h2 className="text-2xl font-bold mb-6 text-slate-900 dark:text-white">Technical Arsenal</h2>
