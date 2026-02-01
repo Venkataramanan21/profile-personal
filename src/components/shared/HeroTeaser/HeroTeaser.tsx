@@ -1,4 +1,5 @@
 import PaintPath from '../PaintPath/PaintPath';
+import SocialHover from '../SocialHover/SocialHover';
 import Styles from './HeroTeaser.module.css';
 import { FaCode, FaDownload } from 'react-icons/fa';
 
@@ -8,19 +9,23 @@ const HeroTeaser = () => {
       <div className={`${Styles.paintPath} p-8 sm:p-20`}>
         <PaintPath />
       </div>
-      <div className={Styles.header}>
+              
+      <div className={`${Styles.header} bg-slate-900 dark:bg-slate-900/50 p-8 rounded-2xl text-white`}>
         <div className={Styles.logoContainer}>
           {/* I need to give a hover effect that makes it feel lie it grows */}
 
           
-          <div className="p-2 transition-[padding] duration-500 ease-out hover:p-4">
-              <img className={Styles.logo} src="zesova.jpg" />
+          <div className="p-2 transition-[padding] duration-500 ease-out">
+              {/** To show my github, leetcode, instagram, twitter, linkedin Id's */}
+
+              {/* <img className={Styles.logo} src="zesova.jpg" /> */}
+              <SocialHover />
             </div>
           </div>
         <div>Hi I am,</div>
 
         <div
-          className={`${Styles.headerText} text-2xl sm:text-6xl font-bold sm:font-normal`}
+          className={`${Styles.headerText} text-2xl sm:text-6xl font-bold sm:font-normal text-center text-white`}
         >
           Venkataramanan b
         </div>

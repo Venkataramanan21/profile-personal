@@ -1,0 +1,8 @@
+.socialContainer .glass {
+    opacity: .5;
+    transition: ease-in 0.5s;
+}
+
+.socialContainer:hover .glass {
+    opacity: 1;
+}
