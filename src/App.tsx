@@ -1,20 +1,13 @@
 import './App.css';
-import AchievementCard from './components/shared/AchievementCard';
-import Experience from './components/shared/Experience/Experience';
+import Footer from './components/shared/Footer';
 import HeroTeaser from './components/shared/HeroTeaser/HeroTeaser';
 import Portfolio from './components/shared/Portfolio';
-import ProjectCard from './components/shared/ProjectCard';
-import { achievements } from './data/achievements';
-import { projects } from './data/projects';
 
 function App() {
   // const [count, setCount] = useState(0);
 
   return (
     <div className="min-h-screen bg-slate-850 text-slate-10 relative">
-  
-      {/* The Grid Background Layer */}
-      {/* <div className="absolute inset-0 bg-grid-pattern opacity-20 pointer-events-none" /> */}
 
       {/* Your Actual Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-12">
@@ -25,6 +18,7 @@ function App() {
       <Portfolio />
       </div>
       
+      <Footer/>
     </div>
   )
 

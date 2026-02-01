@@ -17,8 +17,6 @@ const HeroTeaser = () => {
           
           <div className="p-2 transition-[padding] duration-500 ease-out">
               {/** To show my github, leetcode, instagram, twitter, linkedin Id's */}
-
-              {/* <img className={Styles.logo} src="zesova.jpg" /> */}
               <SocialHover />
             </div>
           </div>
@@ -32,14 +30,14 @@ const HeroTeaser = () => {
         <div>Full-Stack Developer | Java, React & SQL Expert | My Source Code needs caffeine to spark!</div>
 
         <div className="flex gap-4 mt-6 flex-wrap justify-center">
-          <button className="flex items-center px-6 py-3 bg-teal-600 text-white font-semibold rounded-full hover:border-none shadow-md hover:bg-teal-700 transition duration-300 ease-in-out transform hover:scale-105">
+          <a className="flex items-center px-6 py-3 bg-teal-600 text-white font-semibold rounded-full hover:border-none shadow-md hover:bg-teal-700 transition duration-300 ease-in-out transform hover:scale-105" href='#featured-work'>
             <FaCode className="mr-2" />
             View My Work
-          </button>
-          <button className="flex items-center px-6 py-3 bg-transparent border-2 border-teal-600 text-teal-600 font-semibold rounded-full hover:border-teal-700 hover:bg-green-100 transition duration-300 ease-in-out transform hover:scale-105">
+          </a>
+          <a className="flex items-center px-6 py-3 bg-transparent border-2 border-teal-600 text-teal-600 font-semibold rounded-full hover:border-teal-700 hover:bg-green-100 transition duration-300 ease-in-out transform hover:scale-105" href='/resume.pdf' download="Venkataramanan Resume.pdf">
             <FaDownload className="mr-2" />
             Download My Resume
-          </button>
+          </a>
         </div>
       </div>
     </div>

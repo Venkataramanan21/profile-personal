@@ -5,16 +5,16 @@ import { Github, Linkedin, Instagram, Twitter, Code2, X } from 'lucide-react';
 import { PiXLogo } from 'react-icons/pi';
 import Styles from './../HeroTeaser/HeroTeaser.module.css';
 
-const SocialHover = () => {
-  const [isHovered, setIsHovered] = useState(false);
-
-  const socials = [
+export const socials = [
     { id: 1, name: 'GitHub', icon: <Github size={20} />, url: 'https://github.com/Venkataramanan21', color: '#333' },
     { id: 2, name: 'LeetCode', icon: <Code2 size={20} />, url: 'https://leetcode.com/u/venkatbala214', color: '#FFA116' },
     { id: 3, name: 'LinkedIn', icon: <Linkedin size={20} />, url: 'https://www.linkedin.com/in/venkataramanan-b-130881139', color: '#0077B5' },
     { id: 4, name: 'Instagram', icon: <Instagram size={20} />, url: 'https://www.instagram.com/zesova21', color: '#E4405F' },
     { id: 5, name: 'Twitter', icon: <PiXLogo size={20} />, url: 'https://x.com/zesova21', color: '#000' },
-  ];
+];
+
+const SocialHover = () => {
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
       <div 

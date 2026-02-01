@@ -13,7 +13,7 @@ const Portfolio = () => {
     <div className="max-w-8xl mx-auto px-0 py-12 space-y-20">
       
       {/* Hero Section Placeholder */}
-      <section>
+      <section id="featured-work">
         <h1 className="text-4xl font-bold mb-8">Featured Work</h1>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map(p => <ProjectCard key={p.id} project={p} />)}
