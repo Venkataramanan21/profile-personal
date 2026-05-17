@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Mail, ArrowUp } from 'lucide-react';
-import { socials } from './SocialHover/SocialHover';
+import { footerNav, site } from '../../content/site';
+import { socialsProfessional } from './SocialHover/SocialHover';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -8,64 +9,62 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bg-slate-50 dark:bg-slate-800 border-t border-slate-200 dark:border-slate-800 pt-12 pb-8">
-      <div className="max-w-5xl mx-auto px-6">
-        
-        {/* Top Section */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-12">
+    <footer className="border-t border-slate-200 bg-slate-50 pt-12 pb-8 dark:border-slate-800 dark:bg-slate-800">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="mb-12 flex flex-col items-start justify-between gap-6 md:flex-row md:items-center">
           <div>
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
-              Let's Connect
-            </h2>
+            <h2 className="mb-2 text-2xl font-bold text-slate-900 dark:text-white">Let&apos;s connect</h2>
             <p className="text-slate-600 dark:text-slate-400">
-              Open to opportunities in Full Stack Development.
+              Open to full-stack development opportunities.
             </p>
-            <a 
-              href="mailto:venkatbala214@gmail.com" 
-              className="inline-flex items-center gap-2 mt-4 text-blue-600 hover:text-blue-700 font-medium"
+            <a
+              href={`mailto:${site.email}`}
+              className="mt-4 inline-flex items-center gap-2 font-medium text-blue-600 hover:text-blue-700"
             >
               <Mail size={18} />
-              venkatbala214@gmail.com
+              {site.email}
             </a>
           </div>
 
           <div className="flex gap-4">
-            {socials.map((social, i) => (
-              <a 
-                key={i} 
-                href={social.url} 
-                target="_blank" 
-                rel="noopener noreferrer" 
+            {socialsProfessional.map((social) => (
+              <a
+                key={social.id}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={social.name}
-                className="p-3 bg-white dark:bg-slate-900 rounded-full shadow-sm hover:shadow-md hover:scale-110 transition-all border border-slate-100 dark:border-slate-800 text-slate-600 dark:text-slate-300 hover:text-blue-600"
+                className="rounded-full border border-slate-100 bg-white p-3 text-slate-600 shadow-sm transition-all hover:scale-110 hover:text-blue-600 hover:shadow-md dark:border-slate-800 dark:bg-slate-900 dark:text-slate-300"
               >
-                {/* <Icon size={20} /> */}
                 {social.icon}
               </a>
             ))}
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="h-px bg-slate-200 dark:bg-slate-800 w-full mb-8" />
+        <nav className="mb-8 flex flex-wrap gap-x-4 gap-y-2 text-sm" aria-label="Footer">
+          {footerNav.map((item) => (
+            <Link
+              key={item.path}
+              to={item.path}
+              className="text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400"
+            >
+              {item.label}
+            </Link>
+          ))}
+        </nav>
 
-        {/* Bottom Section */}
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500 dark:text-slate-500">
-          
-          <p>© {new Date().getFullYear()} Venkataramanan B. All rights reserved.</p>
+        <div className="mb-8 h-px w-full bg-slate-200 dark:bg-slate-800" />
+
+        <div className="flex flex-col items-center justify-between gap-4 text-sm text-slate-500 md:flex-row">
+          <p>© {new Date().getFullYear()} {site.name}. All rights reserved.</p>
 
           <div className="flex items-center gap-6">
-            <Link
-              to="/experience"
-              className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
-            >
-              Experience log
-            </Link>
             <span className="hidden md:block">Built with React, Tailwind & Framer Motion</span>
-
-            <button 
+            <button
+              type="button"
               onClick={scrollToTop}
-              className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="rounded-lg bg-blue-600 p-2 text-white transition-colors hover:bg-blue-700"
               aria-label="Scroll to top"
             >
               <ArrowUp size={18} />

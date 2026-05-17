@@ -17,10 +17,10 @@ export function SnakeGamePage() {
             </p>
           </div>
           <Link
-            to="/"
-            className="inline-flex items-center justify-center px-4 py-2 rounded-full border-2 border-teal-600 text-teal-800 dark:text-teal-200 font-semibold hover:bg-teal-50 dark:hover:bg-teal-900/30 transition"
+            to="/lab"
+            className="inline-flex items-center justify-center rounded-full border-2 border-teal-600 px-4 py-2 font-semibold text-teal-800 transition hover:bg-teal-50 dark:text-teal-200 dark:hover:bg-teal-900/30"
           >
-            Back to profile
+            Back to lab
           </Link>
         </header>
         <SnakeGame />

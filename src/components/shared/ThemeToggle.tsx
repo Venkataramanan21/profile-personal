@@ -5,7 +5,11 @@ import styles from './ThemeToggle.module.css';
 
 const KNOB_TRAVEL = 28;
 
-const ThemeToggle = () => {
+interface ThemeToggleProps {
+  embedded?: boolean;
+}
+
+const ThemeToggle = ({ embedded = false }: ThemeToggleProps) => {
   const { theme, toggleTheme } = useTheme();
   const isDark = theme === 'dark';
   const reducedMotion = useReducedMotion();
@@ -21,7 +25,7 @@ const ThemeToggle = () => {
       aria-checked={isDark}
       aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
       onClick={toggleTheme}
-      className={styles.root}
+      className={`${styles.root} ${embedded ? styles.embedded : ''}`}
     >
       <span className={styles.track} aria-hidden>
         <span className={styles.icons}>

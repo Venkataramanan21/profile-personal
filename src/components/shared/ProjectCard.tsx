@@ -1,64 +1,51 @@
-
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Zap } from 'lucide-react';
-
-interface Project {
-  id: string | number;
-  title: string;
-  category: string;
-  summary: string;
-  impact: string;
-  tags: string[];
-  link?: string;
-}
+import type { Project } from '../../types/project';
 
 const ProjectCard = ({ project }: { project: Project }) => {
   return (
-    <motion.div 
-      whileHover={{ y: -5 }}
-      className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-lg border border-slate-100 dark:border-slate-700 relative overflow-hidden group"
-    >
-      {/* Decorative Gradient Blob */}
-      <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/10 rounded-full blur-2xl -mr-10 -mt-10 transition-all group-hover:bg-blue-500/20" />
+    <Link to={`/projects/${project.slug}`} className="block h-full">
+      <motion.article
+        whileHover={{ y: -5 }}
+        className="group relative h-full overflow-hidden rounded-xl border border-slate-100 bg-white p-6 shadow-lg dark:border-slate-700 dark:bg-slate-800"
+      >
+        <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-blue-500/10 blur-2xl transition-all group-hover:bg-blue-500/20" />
 
-      <div className="flex justify-between items-start mb-4">
-        <span className="px-3 py-1 text-xs font-semibold tracking-wider text-blue-600 bg-blue-100 rounded-full dark:bg-blue-900/30 dark:text-blue-400">
-          {project.category}
-        </span>
-        <ArrowUpRight className="w-5 h-5 text-slate-400 group-hover:text-blue-500 transition-colors" />
-      </div>
-
-      <h3 className="text-xl font-bold text-slate-800 dark:text-white mb-2">
-        {project.title}
-      </h3>
-      
-      <p className="text-slate-600 dark:text-slate-300 text-sm mb-6 leading-relaxed">
-        {project.summary}
-      </p>
-
-      {/* Key Metric Highlight */}
-      <div className="bg-slate-50 dark:bg-slate-900/50 rounded-lg p-4 border-l-4 border-blue-500 mb-6">
-        <p className="text-xs text-slate-500 uppercase font-bold mb-1">Key Impact</p>
-        <p className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
-          <Zap className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-          {project.impact}
-        </p>
-      </div>
-
-      <div className="flex flex-wrap gap-2">
-        {project.tags.map((tag, i) => (
-          <span key={i} className="text-xs text-slate-500 bg-slate-100 dark:bg-slate-700 dark:text-slate-300 px-2 py-1 rounded">
-            #{tag}
+        <div className="mb-4 flex items-start justify-between">
+          <span className="rounded-full bg-blue-100 px-3 py-1 text-xs font-semibold tracking-wider text-blue-600 dark:bg-blue-900/30 dark:text-blue-400">
+            {project.category}
           </span>
-        ))}
-      </div>
-    </motion.div>
+          <ArrowUpRight className="h-5 w-5 text-slate-400 transition-colors group-hover:text-blue-500" />
+        </div>
+
+        <h3 className="mb-2 text-xl font-bold text-slate-800 dark:text-white">{project.title}</h3>
+
+        <p className="mb-6 text-sm leading-relaxed text-slate-600 dark:text-slate-300">
+          {project.summary}
+        </p>
+
+        <div className="mb-6 rounded-lg border-l-4 border-blue-500 bg-slate-50 p-4 dark:bg-slate-900/50">
+          <p className="mb-1 text-xs font-bold uppercase text-slate-500">Key impact</p>
+          <p className="flex items-center gap-2 text-lg font-bold text-slate-900 dark:text-white">
+            <Zap className="h-4 w-4 fill-yellow-500 text-yellow-500" />
+            {project.impact}
+          </p>
+        </div>
+
+        <div className="flex flex-wrap gap-2">
+          {project.tags.map((tag) => (
+            <span
+              key={tag}
+              className="rounded bg-slate-100 px-2 py-1 text-xs text-slate-500 dark:bg-slate-700 dark:text-slate-300"
+            >
+              #{tag}
+            </span>
+          ))}
+        </div>
+      </motion.article>
+    </Link>
   );
 };
-
-// Usage Example
-// <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-//   {projects.map(p => <ProjectCard key={p.id} project={p} />)}
-// </div>
 
 export default ProjectCard;

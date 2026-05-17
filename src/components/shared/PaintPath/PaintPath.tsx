@@ -46,7 +46,7 @@ const PaintPath = () => {
       <svg
         viewBox="0 0 1005 768"
         preserveAspectRatio="xMidYMid meet"
-        className="w-full h-full overflow-visible text-teal-900/30 dark:text-teal-100/35"
+        className="w-full h-full overflow-visible text-teal-900/50 dark:text-teal-100/60"
         aria-hidden
       >
         <path

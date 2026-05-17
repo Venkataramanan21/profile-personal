@@ -1,64 +1,60 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-// Note: You can install lucide-react for nice icons
-import { Github, Linkedin, Instagram, Code2 } from 'lucide-react';
-import { PiXLogo } from 'react-icons/pi';
+import { Github, Linkedin, Code2 } from 'lucide-react';
 import Styles from './../HeroTeaser/HeroTeaser.module.css';
 
-export const socials = [
-    { id: 1, name: 'GitHub', icon: <Github size={20} />, url: 'https://github.com/Venkataramanan21', color: '#333' },
-    { id: 2, name: 'LeetCode', icon: <Code2 size={20} />, url: 'https://leetcode.com/u/venkatbala214', color: '#FFA116' },
-    { id: 3, name: 'LinkedIn', icon: <Linkedin size={20} />, url: 'https://www.linkedin.com/in/venkataramanan-b-130881139', color: '#0077B5' },
-    { id: 4, name: 'Instagram', icon: <Instagram size={20} />, url: 'https://www.instagram.com/zesova21', color: '#E4405F' },
-    { id: 5, name: 'Twitter', icon: <PiXLogo size={20} />, url: 'https://x.com/zesova21', color: '#000' },
+export const socialsProfessional = [
+  { id: 1, name: 'GitHub', icon: <Github size={20} />, url: 'https://github.com/Venkataramanan21', color: '#333' },
+  { id: 2, name: 'LeetCode', icon: <Code2 size={20} />, url: 'https://leetcode.com/u/venkatbala214', color: '#FFA116' },
+  { id: 3, name: 'LinkedIn', icon: <Linkedin size={20} />, url: 'https://www.linkedin.com/in/venkataramanan-b-130881139', color: '#0077B5' },
 ];
+
+/** @deprecated Use socialsProfessional in footer/contact; kept for backward compatibility */
+export const socials = socialsProfessional;
 
 const SocialHover = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-      <div 
-        className="relative inline-block p-3"
-        onMouseEnter={() => setIsHovered(true)}
-        onMouseLeave={() => setIsHovered(false)}
-        >
-        {/* Social Icons Container */}
-        <div className={"absolute right-[100%] flex gap-3 top-1/2 transform -translate-y-1/2 "}>
-            <AnimatePresence>
-            { isHovered && <div className='glass-element flex-row-reverse flex gap-3 p-6 rounded-full'>
-            { socials.map((social, index) => (
+    <div
+      className="relative inline-block p-3"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      <div className="absolute right-[100%] top-1/2 flex -translate-y-1/2 gap-3">
+        <AnimatePresence>
+          {isHovered && (
+            <div className="glass-element flex flex-row-reverse gap-3 rounded-full p-6">
+              {socialsProfessional.map((social, index) => (
                 <motion.a
-                key={social.id}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, y: 20, scale: 0 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0.5, y: socials.length -index * 3, scale: .9, transformOrigin: "center"}}
-                transition={{ 
-                    type: "spring", 
-                    stiffness: 260, 
-                    damping: 15, 
-                    delay: index * 0.05 // This creates the staggered "pop" effect
-                }}
-                whileHover={{ y: -5, scale: 1.1 }}
-                className="w-10 h-10 rounded-full flex items-center justify-center text-white shadow-lg"
-                style={{ backgroundColor: social.color }}
+                  key={social.id}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.name}
+                  initial={{ opacity: 0, y: 20, scale: 0 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0.5, y: socialsProfessional.length - index * 3, scale: 0.9 }}
+                  transition={{
+                    type: 'spring',
+                    stiffness: 260,
+                    damping: 15,
+                    delay: index * 0.05,
+                  }}
+                  whileHover={{ y: -5, scale: 1.1 }}
+                  className="flex h-10 w-10 items-center justify-center rounded-full text-white shadow-lg"
+                  style={{ backgroundColor: social.color }}
                 >
-                {social.icon}
+                  {social.icon}
                 </motion.a>
-            ))}
-            </div>}
-            </AnimatePresence>
-        </div>
+              ))}
+            </div>
+          )}
+        </AnimatePresence>
+      </div>
 
-        {/* Main Trigger Button
-        <button className="px-6 py-3 bg-blue-600 text-white rounded-full font-bold hover:bg-blue-700 transition-colors shadow-md">
-            Connect with me
-        </button> */}
-
-        <img className={Styles.logo} src="zesova.jpg" />
-        </div>
+      <img className={Styles.logo} src="/zesova.jpg" alt="Venkataramanan B" />
+    </div>
   );
 };
 

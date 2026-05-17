@@ -1,30 +1,31 @@
-# React + TypeScript + Vite
+# Venkataramanan B — Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Full-stack developer portfolio (React, TypeScript, Vite, Tailwind). Showcases case studies, a git-style experience log, engineering practices, and interactive lab demos.
 
-Currently, two official plugins are available:
+## Live site
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Deploy to GitHub Pages or your host — update `site.url` in `src/content/site.ts` when the URL is final.
 
-## Expanding the ESLint configuration
+## Develop
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json', './tsconfig.app.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+npm install
+npm run dev
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Build
+
+```bash
+npm run build
+npm run preview
+```
+
+## Structure
+
+- `src/content/` — site copy, projects (case studies), about, engineering
+- `src/pages/` — routes (home, projects, experience, resume, lab, …)
+- `src/components/layout/` — global header and layout
+
+## Interview path
+
+Home → **Interviewers start here** → flagship case study → experience log → resume.
