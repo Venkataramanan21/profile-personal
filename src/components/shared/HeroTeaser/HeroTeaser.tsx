@@ -18,14 +18,16 @@ const HeroTeaser = () => {
       </div>
 
       <div className={`${Styles.header} ${Styles.glassCard} p-8 rounded-2xl text-slate-900 dark:text-white`}>
-        <div>Hi I am,</div>
+        <p className="text-slate-700 dark:text-slate-200">Hi I am,</p>
 
-        <div
+        <h1
           className={`${Styles.headerText} text-2xl sm:text-6xl font-bold sm:font-normal text-center text-slate-900 dark:text-white`}
         >
           Venkataramanan b
-        </div>
-        <div>Full-Stack Developer | Java, React & SQL Expert | My Source Code needs caffeine to spark!</div>
+        </h1>
+        <p className="text-center text-slate-700 dark:text-slate-300">
+          Full-Stack Developer | Java, React & SQL Expert | My Source Code needs caffeine to spark!
+        </p>
 
         <div className="flex gap-4 mt-6 flex-wrap justify-center">
           <a className="flex items-center px-6 py-3 bg-teal-600 text-white font-semibold rounded-full hover:border-none shadow-md hover:bg-teal-700 transition duration-300 ease-in-out transform hover:scale-105" href='#featured-work'>
