@@ -12,6 +12,8 @@ import ResumePage from './pages/ResumePage';
 import ContactPage from './pages/ContactPage';
 import LabPage from './pages/LabPage';
 import NowPage from './pages/NowPage';
+import TodoPage from './pages/TodoPage';
+import ExpenseTrackerPage from './pages/ExpenseTrackerPage';
 
 const WriterGamePage = lazy(() =>
   import('./pages/WriterGamePage').then((m) => ({ default: m.WriterGamePage }))
@@ -41,6 +43,8 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/lab" element={<LabPage />} />
         <Route path="/now" element={<NowPage />} />
+        <Route path="/todo" element={<TodoPage />} />
+        <Route path="/expense-tracker" element={<ExpenseTrackerPage />} />
         <Route
           path="/writer-game"
           element={

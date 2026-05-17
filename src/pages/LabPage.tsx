@@ -19,6 +19,16 @@ const labItems = [
     path: '/ludo-game',
     description: 'Board game UI with dice rolls and turn logic — component composition practice.',
   },
+  {
+    title: 'Todo List',
+    path: '/todo',
+    description: 'Local task tracker with add, complete, and delete actions.',
+  },
+  {
+    title: 'Expense tracker',
+    path: '/expense-tracker',
+    description: 'Simple spending log with INR and major currencies — stored locally.',
+  },
 ];
 
 const LabPage = () => {

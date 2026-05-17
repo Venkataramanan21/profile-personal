@@ -25,4 +25,6 @@ export const footerNav = [
   { label: 'About', path: '/about' },
   { label: 'Lab', path: '/lab' },
   { label: 'Now', path: '/now' },
+  { label: 'Todo', path: '/todo' },
+  { label: 'Expenses', path: '/expense-tracker' },
 ] as const;
