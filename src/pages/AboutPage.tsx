@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { aboutContent } from '../content/about';
 import PageHeader from '../components/shared/PageHeader';
 import { usePageTitle } from '../hooks/usePageTitle';
@@ -37,6 +38,18 @@ const AboutPage = () => {
         <h2 className="mb-3 text-xl font-bold text-slate-900 dark:text-white">What I&apos;m looking for</h2>
         <p className="leading-relaxed text-slate-600 dark:text-slate-300">{aboutContent.lookingFor}</p>
       </section>
+
+      <p className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600 dark:border-slate-700 dark:bg-slate-900/50 dark:text-slate-300">
+        Screening this profile? Follow the path on the{' '}
+        <Link to="/" className="font-semibold text-teal-600 hover:underline dark:text-teal-400">
+          home page
+        </Link>
+        {' '}— case study, experience log, then{' '}
+        <Link to="/resume" className="font-semibold text-teal-600 hover:underline dark:text-teal-400">
+          resume
+        </Link>
+        .
+      </p>
     </div>
   );
 };

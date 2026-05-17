@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
-import { GitCommit, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { ArrowRight, GitCommit, MapPin } from 'lucide-react';
 import { branchColors, categoryStyles } from '../../data/timeline';
 import type { TimelineItem } from '../../types/timeline';
 
@@ -46,7 +47,16 @@ const GitTimelineEntry = ({ item, index }: GitTimelineEntryProps) => {
         <motion.div className="flex items-start gap-2">
           <GitCommit className="mt-0.5 h-5 w-5 shrink-0 text-slate-400" />
           <h3 className="text-lg font-bold leading-snug text-slate-900 dark:text-white sm:text-xl">
-            {item.title}
+            {item.projectSlug ? (
+              <Link
+                to={`/projects/${item.projectSlug}`}
+                className="text-teal-700 underline-offset-2 hover:text-teal-800 hover:underline dark:text-teal-300 dark:hover:text-teal-200"
+              >
+                {item.title}
+              </Link>
+            ) : (
+              item.title
+            )}
             {item.subtitle && (
               <span className="mt-1 block text-base font-normal text-slate-500 dark:text-slate-400 sm:inline sm:mt-0">
                 {' '}
@@ -91,6 +101,16 @@ const GitTimelineEntry = ({ item, index }: GitTimelineEntryProps) => {
             </span>
           ))}
         </div>
+      )}
+
+      {item.projectSlug && (
+        <Link
+          to={`/projects/${item.projectSlug}`}
+          className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-teal-700 hover:text-teal-800 dark:text-teal-400 dark:hover:text-teal-300"
+        >
+          Read case study
+          <ArrowRight size={14} aria-hidden />
+        </Link>
       )}
     </motion.article>
   );

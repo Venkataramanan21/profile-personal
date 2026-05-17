@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import { getProjectBySlug } from '../content/projects';
 import PageHeader from '../components/shared/PageHeader';
 import ArchitectureDiagram from '../components/shared/ArchitectureDiagram';
+import InterviewerPathFooter from '../components/shared/InterviewerPathFooter';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { Zap } from 'lucide-react';
 
@@ -123,20 +124,7 @@ const CaseStudyPage = () => {
         </ul>
       </section>
 
-      <div className="mt-12 flex flex-wrap gap-4">
-        <Link
-          to="/experience"
-          className="rounded-full bg-violet-600 px-6 py-3 font-semibold text-white hover:bg-violet-700"
-        >
-          View experience log
-        </Link>
-        <Link
-          to="/resume"
-          className="rounded-full border-2 border-teal-600 px-6 py-3 font-semibold text-teal-700 hover:bg-teal-50 dark:text-teal-400 dark:hover:bg-teal-900/30"
-        >
-          Resume
-        </Link>
-      </div>
+      <InterviewerPathFooter step="case-study" className="mt-12" />
     </article>
   );
 };

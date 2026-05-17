@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 import { engineeringPractices } from '../content/engineering';
 import PageHeader from '../components/shared/PageHeader';
 import { usePageTitle } from '../hooks/usePageTitle';
+import { site } from '../content/site';
 
 const EngineeringPage = () => {
   usePageTitle('How I build');
@@ -16,6 +18,21 @@ const EngineeringPage = () => {
         backTo={{ label: 'Back to home', path: '/' }}
         eyebrow="Engineering"
       />
+
+      <p className="mb-8 rounded-xl border border-teal-200/80 bg-teal-50/80 px-4 py-3 text-sm text-teal-900 dark:border-teal-900/50 dark:bg-teal-950/30 dark:text-teal-100">
+        These practices show up in shipped work — see the{' '}
+        <Link
+          to={`/projects/${site.flagshipSlug}`}
+          className="font-semibold underline-offset-2 hover:underline"
+        >
+          flagship case study
+        </Link>{' '}
+        or the full{' '}
+        <Link to="/projects" className="font-semibold underline-offset-2 hover:underline">
+          work index
+        </Link>
+        .
+      </p>
 
       <div className="space-y-3">
         {engineeringPractices.map((practice) => {

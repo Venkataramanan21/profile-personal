@@ -12,6 +12,8 @@ export interface TimelineItem {
   description: string[];
   tags?: string[];
   sortOrder: number;
+  /** When set, timeline entry title links to this case study */
+  projectSlug?: string;
 }
 
 export interface CategoryStyle {

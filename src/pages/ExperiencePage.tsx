@@ -1,5 +1,6 @@
 import { GitBranch } from 'lucide-react';
 import GitTimeline from '../components/experience/GitTimeline';
+import InterviewerPathFooter from '../components/shared/InterviewerPathFooter';
 import PageHeader from '../components/shared/PageHeader';
 import { branchColors, categoryStyles } from '../data/timeline';
 import { usePageTitle } from '../hooks/usePageTitle';
@@ -41,6 +42,8 @@ const ExperiencePage = () => {
       </section>
 
       <GitTimeline />
+
+      <InterviewerPathFooter step="experience" className="mt-12" />
     </div>
   );
 };

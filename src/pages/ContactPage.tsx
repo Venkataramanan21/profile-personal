@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { Mail, ExternalLink } from 'lucide-react';
 import { socialsProfessional } from '../components/shared/SocialHover/SocialHover';
+import InterviewerPathFooter from '../components/shared/InterviewerPathFooter';
 import PageHeader from '../components/shared/PageHeader';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { site } from '../content/site';
@@ -58,6 +59,8 @@ const ContactPage = () => {
         </Link>
         .
       </p>
+
+      <InterviewerPathFooter step="contact" className="mt-10" />
     </div>
   );
 };

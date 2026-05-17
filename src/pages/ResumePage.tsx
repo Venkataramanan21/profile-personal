@@ -3,6 +3,7 @@ import { Download } from 'lucide-react';
 import { experience } from '../data/experience';
 import { projects } from '../content/projects';
 import { skills } from '../data/skills';
+import InterviewerPathFooter from '../components/shared/InterviewerPathFooter';
 import PageHeader from '../components/shared/PageHeader';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { site } from '../content/site';
@@ -129,6 +130,8 @@ const ResumePage = () => {
           </div>
         </section>
       </article>
+
+      <InterviewerPathFooter step="resume" className="mt-10" />
     </div>
   );
 };

@@ -45,6 +45,7 @@ const projectItems: TimelineItem[] = projects.map((project, index) => ({
   date: project.impact,
   description: [project.summary],
   tags: project.tags,
+  projectSlug: project.slug,
   sortOrder: 85 - index * 3,
 }));
 
