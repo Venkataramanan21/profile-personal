@@ -1,7 +1,8 @@
 import PaintPath from '../PaintPath/PaintPath';
 import SocialHover from '../SocialHover/SocialHover';
 import Styles from './HeroTeaser.module.css';
-import { FaCode, FaDownload } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { FaCode, FaDownload, FaGitAlt } from 'react-icons/fa';
 
 const HeroTeaser = () => {
   return (
@@ -9,17 +10,14 @@ const HeroTeaser = () => {
       <div className={`${Styles.paintPath} p-8 sm:p-20`}>
         <PaintPath />
       </div>
-              
-      <div className={`${Styles.header} bg-white/95 dark:bg-slate-900/90 p-8 rounded-2xl text-slate-900 dark:text-white shadow-lg dark:shadow-none border border-slate-200/80 dark:border-transparent`}>
-        <div className={Styles.logoContainer}>
-          {/* I need to give a hover effect that makes it feel lie it grows */}
 
-          
-          <div className="p-2 transition-[padding] duration-500 ease-out">
-              {/** To show my github, leetcode, instagram, twitter, linkedin Id's */}
-              <SocialHover />
-            </div>
-          </div>
+      <div className={Styles.logoContainer}>
+        <div className="p-2 transition-[padding] duration-500 ease-out">
+          <SocialHover />
+        </div>
+      </div>
+
+      <div className={`${Styles.header} ${Styles.glassCard} p-8 rounded-2xl text-slate-900 dark:text-white`}>
         <div>Hi I am,</div>
 
         <div
@@ -34,6 +32,13 @@ const HeroTeaser = () => {
             <FaCode className="mr-2" />
             View My Work
           </a>
+          <Link
+            to="/experience"
+            className="flex items-center px-6 py-3 bg-violet-600 text-white font-semibold rounded-full shadow-md hover:bg-violet-700 transition duration-300 ease-in-out transform hover:scale-105"
+          >
+            <FaGitAlt className="mr-2" />
+            Experience Log
+          </Link>
           <a className="flex items-center px-6 py-3 bg-transparent border-2 border-teal-600 text-teal-700 dark:text-teal-400 font-semibold rounded-full hover:border-teal-700 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition duration-300 ease-in-out transform hover:scale-105" href='/resume.pdf' download="Venkataramanan Resume.pdf">
             <FaDownload className="mr-2" />
             Download My Resume

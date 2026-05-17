@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { Award, Briefcase } from "lucide-react";
 import { projects } from "../../data/projects";
 import ProjectCard from "./ProjectCard";
@@ -24,9 +25,17 @@ const Portfolio = () => {
         
         {/* Left Column: Experience (Takes up 2/3 width) */}
         <section className="lg:col-span-2 bg-white/95 dark:bg-slate-900/90 p-8 rounded-2xl shadow-lg dark:shadow-none border border-slate-200/80 dark:border-transparent">
-          <h2 className="text-2xl font-bold mb-8 flex items-center gap-2 text-slate-900 dark:text-white">
-            <Briefcase className="text-blue-500" /> Work Experience
-          </h2>
+          <div className="mb-8 flex flex-wrap items-center justify-between gap-3">
+            <h2 className="text-2xl font-bold flex items-center gap-2 text-slate-900 dark:text-white">
+              <Briefcase className="text-blue-500" /> Work Experience
+            </h2>
+            <Link
+              to="/experience"
+              className="text-sm font-semibold text-violet-600 hover:text-violet-700 dark:text-violet-400 dark:hover:text-violet-300"
+            >
+              View git log →
+            </Link>
+          </div>
           <div className="space-y-0">
             {experience.map((exp, index) => (
               <ExperienceItem key={exp.id} exp={exp} index={index} />

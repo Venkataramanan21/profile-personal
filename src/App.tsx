@@ -1,26 +1,17 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import Footer from './components/shared/Footer';
-import HeroTeaser from './components/shared/HeroTeaser/HeroTeaser';
-import Portfolio from './components/shared/Portfolio';
+import ExperiencePage from './pages/ExperiencePage';
+import { HomePage } from './pages/HomePage';
+import { WriterGamePage } from './pages/WriterGamePage';
 
 function App() {
-  // const [count, setCount] = useState(0);
-
   return (
-    <div className="min-h-screen text-slate-900 dark:text-slate-100 relative">
-
-      {/* Your Actual Content */}
-      <div className="relative z-10 max-w-6xl mx-auto px-6 py-12">
-        {/* Your Profile, Projects, Skills go here */}
-          <HeroTeaser />
-      {/* <Experience /> */}
-
-      <Portfolio />
-      </div>
-      
-      <Footer/>
-    </div>
-  )
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/experience" element={<ExperiencePage />} />
+      <Route path="/writer-game" element={<WriterGamePage />} />
+    </Routes>
+  );
 }
 
 export default App;

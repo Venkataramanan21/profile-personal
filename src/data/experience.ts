@@ -9,7 +9,7 @@ export const experience = [
       "Building the ATS (Applicant Tracking System) Application.",
       "Streamlined codebase maintainability by 71% by refactoring redundant files into modular components.",
       "Optimized CI/CD pipelines to unify branch testing, resulting in a 5x faster developer feedback loop.",
-      "Eliminated critical workflow bottlenecks to enable a more agile shipping cadence]."
+      "Eliminated critical workflow bottlenecks to enable a more agile shipping cadence."
     ],
     tech: ["Java", "React", "SQL", "CI/CD"]
   },
@@ -23,7 +23,8 @@ export const experience = [
       "Worked on a B2C eCommerce Retail project for the Telecommunication sector.",
       "Spearheaded the integration of GitHub Copilot, establishing best practices for AI-assisted development.",
       "Designed a config-driven UI system and Redux Toolkit data store for high-traffic landing pages.",
-      "Mentored a team of two developers to deliver unit-tested components via React Testing Library]."
-    ]
+      "Mentored a team of two developers to deliver unit-tested components via React Testing Library."
+    ],
+    tech: ["React", "Redux Toolkit", "Jest", "GitHub Copilot"]
   }
 ];

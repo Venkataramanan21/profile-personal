@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Mail, ArrowUp } from 'lucide-react';
 import { socials } from './SocialHover/SocialHover';
 
@@ -54,8 +55,14 @@ const Footer = () => {
           <p>© {new Date().getFullYear()} Venkataramanan B. All rights reserved.</p>
 
           <div className="flex items-center gap-6">
+            <Link
+              to="/experience"
+              className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300"
+            >
+              Experience log
+            </Link>
             <span className="hidden md:block">Built with React, Tailwind & Framer Motion</span>
-            
+
             <button 
               onClick={scrollToTop}
               className="p-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
