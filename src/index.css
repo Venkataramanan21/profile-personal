@@ -7,11 +7,6 @@
     sans-serif;
   font-weight: 500;
   line-height: 1.7;
-
-  /* color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87); */
-  /* background-color: #242424; */
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
@@ -43,7 +38,13 @@ body {
   margin: 0;
   padding: 0px;
   min-height: 100vh;
-  background-image: linear-gradient(108deg, #425f57, #cfff8d);
+  background-image: linear-gradient(108deg, #e8f5e9, #cfff8d);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-image: linear-gradient(108deg, #425f57, #cfff8d);
+  }
 }
 
 h1 {
@@ -73,8 +74,6 @@ button:focus-visible {
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    /* background-color: #ffffff; */
-    background-image: linear-gradient(108deg, #425f57, #cfff8d);
   }
   a:hover {
     color: #747bff;

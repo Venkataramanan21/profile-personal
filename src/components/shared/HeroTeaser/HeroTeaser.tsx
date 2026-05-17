@@ -10,7 +10,7 @@ const HeroTeaser = () => {
         <PaintPath />
       </div>
               
-      <div className={`${Styles.header} bg-slate-900 dark:bg-slate-900/50 p-8 rounded-2xl text-white`}>
+      <div className={`${Styles.header} bg-white/95 dark:bg-slate-900/90 p-8 rounded-2xl text-slate-900 dark:text-white shadow-lg dark:shadow-none border border-slate-200/80 dark:border-transparent`}>
         <div className={Styles.logoContainer}>
           {/* I need to give a hover effect that makes it feel lie it grows */}
 
@@ -23,7 +23,7 @@ const HeroTeaser = () => {
         <div>Hi I am,</div>
 
         <div
-          className={`${Styles.headerText} text-2xl sm:text-6xl font-bold sm:font-normal text-center text-white`}
+          className={`${Styles.headerText} text-2xl sm:text-6xl font-bold sm:font-normal text-center text-slate-900 dark:text-white`}
         >
           Venkataramanan b
         </div>
@@ -34,7 +34,7 @@ const HeroTeaser = () => {
             <FaCode className="mr-2" />
             View My Work
           </a>
-          <a className="flex items-center px-6 py-3 bg-transparent border-2 border-teal-600 text-teal-600 font-semibold rounded-full hover:border-teal-700 hover:bg-green-100 transition duration-300 ease-in-out transform hover:scale-105" href='/resume.pdf' download="Venkataramanan Resume.pdf">
+          <a className="flex items-center px-6 py-3 bg-transparent border-2 border-teal-600 text-teal-700 dark:text-teal-400 font-semibold rounded-full hover:border-teal-700 hover:bg-teal-50 dark:hover:bg-teal-900/30 transition duration-300 ease-in-out transform hover:scale-105" href='/resume.pdf' download="Venkataramanan Resume.pdf">
             <FaDownload className="mr-2" />
             Download My Resume
           </a>

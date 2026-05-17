@@ -11,7 +11,7 @@ const ExperienceItem = ({ exp, index }: { exp: any; index: number }) => {
       className="relative pl-8 pb-12 border-l-2 border-slate-200 dark:border-slate-700 last:pb-0"
     >
       {/* Timeline Dot */}
-      <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-600 border-4 border-white dark:border-slate-900" />
+      <div className="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-blue-600 border-4 border-slate-100 dark:border-slate-900" />
       
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-2">
         <h3 className="text-lg font-bold text-slate-900 dark:text-white">

@@ -7,7 +7,7 @@ function App() {
   // const [count, setCount] = useState(0);
 
   return (
-    <div className="min-h-screen bg-slate-850 text-slate-10 relative">
+    <div className="min-h-screen text-slate-900 dark:text-slate-100 relative">
 
       {/* Your Actual Content */}
       <div className="relative z-10 max-w-6xl mx-auto px-6 py-12">
