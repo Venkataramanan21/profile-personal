@@ -1,12 +1,16 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { FaCode, FaDownload, FaGitAlt } from 'react-icons/fa';
+import { useSitePath } from '../../../context/SiteRoutePrefixContext';
 import PaintPath from '../PaintPath/PaintPath';
 import SocialHover from '../SocialHover/SocialHover';
 import Styles from './HeroTeaser.module.css';
 import { site } from '../../../content/site';
 
 const HeroTeaser = () => {
+  const flagshipCase = useSitePath(`/projects/${site.flagshipSlug}`);
+  const experiencePath = useSitePath('/experience');
+  const resumePath = useSitePath('/resume');
   return (
     <>
       <motion.div className={Styles.logoContainer}>
@@ -36,21 +40,21 @@ const HeroTeaser = () => {
 
           <motion.div className="mt-6 flex flex-wrap justify-center gap-4">
             <Link
-              to={`/projects/${site.flagshipSlug}`}
+              to={flagshipCase}
               className="flex items-center rounded-full bg-teal-600 px-6 py-3 font-semibold text-white shadow-md transition duration-300 ease-in-out hover:scale-105 hover:bg-teal-700"
             >
               <FaCode className="mr-2" />
               Read flagship case study
             </Link>
             <Link
-              to="/experience"
+              to={experiencePath}
               className="flex items-center rounded-full bg-violet-600 px-6 py-3 font-semibold text-white shadow-md transition duration-300 ease-in-out hover:scale-105 hover:bg-violet-700"
             >
               <FaGitAlt className="mr-2" />
               Experience log
             </Link>
             <Link
-              to="/resume"
+              to={resumePath}
               className="flex items-center rounded-full border-2 border-teal-600 px-6 py-3 font-semibold text-teal-700 transition duration-300 ease-in-out hover:scale-105 hover:border-teal-700 hover:bg-teal-50 dark:text-teal-400 dark:hover:bg-teal-900/30"
             >
               <FaDownload className="mr-2" />

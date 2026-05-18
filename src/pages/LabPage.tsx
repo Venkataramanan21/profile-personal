@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import { Gamepad2 } from 'lucide-react';
 import PageHeader from '../components/shared/PageHeader';
+import { useSiteRoutePrefix } from '../context/SiteRoutePrefixContext';
 import { usePageTitle } from '../hooks/usePageTitle';
+import { applySiteRoutePrefix } from '../lib/sitePaths';
 
 const labItems = [
   {
@@ -33,6 +35,7 @@ const labItems = [
 
 const LabPage = () => {
   usePageTitle('Lab');
+  const routePrefix = useSiteRoutePrefix();
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-12">
@@ -52,7 +55,7 @@ const LabPage = () => {
         {labItems.map((item) => (
           <li key={item.path}>
             <Link
-              to={item.path}
+              to={applySiteRoutePrefix(routePrefix, item.path)}
               className="block rounded-xl border border-slate-200 bg-white p-5 transition hover:border-teal-400 hover:shadow-md dark:border-slate-700 dark:bg-slate-900/80 dark:hover:border-teal-600"
             >
               <h2 className="mb-1 font-bold text-slate-900 dark:text-white">{item.title}</h2>

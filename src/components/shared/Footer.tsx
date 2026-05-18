@@ -1,7 +1,17 @@
 import { Link } from 'react-router-dom';
 import { Mail, ArrowUp } from 'lucide-react';
+import { useSitePath } from '../../context/SiteRoutePrefixContext';
 import { footerNav, site } from '../../content/site';
 import { socialsProfessional } from './SocialHover/SocialHover';
+
+function FooterNavLink({ path, label }: { path: string; label: string }) {
+  const to = useSitePath(path);
+  return (
+    <Link to={to} className="text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400">
+      {label}
+    </Link>
+  );
+}
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -44,13 +54,7 @@ const Footer = () => {
 
         <nav className="mb-8 flex flex-wrap gap-x-4 gap-y-2 text-sm" aria-label="Footer">
           {footerNav.map((item) => (
-            <Link
-              key={item.path}
-              to={item.path}
-              className="text-slate-600 hover:text-teal-600 dark:text-slate-400 dark:hover:text-teal-400"
-            >
-              {item.label}
-            </Link>
+            <FooterNavLink key={item.path} path={item.path} label={item.label} />
           ))}
         </nav>
 

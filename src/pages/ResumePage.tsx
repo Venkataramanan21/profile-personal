@@ -5,8 +5,10 @@ import { projects } from '../content/projects';
 import { skills } from '../data/skills';
 import InterviewerPathFooter from '../components/shared/InterviewerPathFooter';
 import PageHeader from '../components/shared/PageHeader';
+import { useSiteRoutePrefix } from '../context/SiteRoutePrefixContext';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { site } from '../content/site';
+import { applySiteRoutePrefix } from '../lib/sitePaths';
 
 const skillGroupLabels: Record<string, string> = {
   frontend: 'Frontend',
@@ -17,6 +19,7 @@ const skillGroupLabels: Record<string, string> = {
 
 const ResumePage = () => {
   usePageTitle('Resume');
+  const routePrefix = useSiteRoutePrefix();
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-12">
@@ -88,7 +91,7 @@ const ResumePage = () => {
                 className="rounded-lg border border-slate-100 bg-slate-50/80 px-4 py-3 text-sm dark:border-slate-800 dark:bg-slate-800/50"
               >
                 <Link
-                  to={`/projects/${p.slug}`}
+                  to={applySiteRoutePrefix(routePrefix, `/projects/${p.slug}`)}
                   className="font-semibold text-teal-700 underline-offset-2 hover:text-teal-800 hover:underline dark:text-teal-300 dark:hover:text-teal-200"
                 >
                   {p.title}

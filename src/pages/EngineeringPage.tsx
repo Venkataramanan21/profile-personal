@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ChevronDown } from 'lucide-react';
 import { engineeringPractices } from '../content/engineering';
+import { useSitePath } from '../context/SiteRoutePrefixContext';
 import PageHeader from '../components/shared/PageHeader';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { site } from '../content/site';
@@ -9,6 +10,8 @@ import { site } from '../content/site';
 const EngineeringPage = () => {
   usePageTitle('How I build');
   const [openId, setOpenId] = useState<string | null>(engineeringPractices[0]?.id ?? null);
+  const flagshipPath = useSitePath(`/projects/${site.flagshipSlug}`);
+  const projectsIndexPath = useSitePath('/projects');
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-12">
@@ -22,13 +25,13 @@ const EngineeringPage = () => {
       <p className="mb-8 rounded-xl border border-teal-200/80 bg-teal-50/80 px-4 py-3 text-sm text-teal-900 dark:border-teal-900/50 dark:bg-teal-950/30 dark:text-teal-100">
         These practices show up in shipped work — see the{' '}
         <Link
-          to={`/projects/${site.flagshipSlug}`}
+          to={flagshipPath}
           className="font-semibold underline-offset-2 hover:underline"
         >
           flagship case study
         </Link>{' '}
         or the full{' '}
-        <Link to="/projects" className="font-semibold underline-offset-2 hover:underline">
+        <Link to={projectsIndexPath} className="font-semibold underline-offset-2 hover:underline">
           work index
         </Link>
         .

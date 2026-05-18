@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, GitCommit, MapPin } from 'lucide-react';
+import { useSitePath } from '../../context/SiteRoutePrefixContext';
 import { branchColors, categoryStyles } from '../../data/timeline';
 import type { TimelineItem } from '../../types/timeline';
 
@@ -12,6 +13,7 @@ interface GitTimelineEntryProps {
 const GitTimelineEntry = ({ item, index }: GitTimelineEntryProps) => {
   const style = categoryStyles[item.category];
   const branchColor = branchColors[item.branch] ?? 'text-slate-500';
+  const caseStudyTo = useSitePath(item.projectSlug ? `/projects/${item.projectSlug}` : '/');
 
   return (
     <motion.article
@@ -49,7 +51,7 @@ const GitTimelineEntry = ({ item, index }: GitTimelineEntryProps) => {
           <h3 className="text-lg font-bold leading-snug text-slate-900 dark:text-white sm:text-xl">
             {item.projectSlug ? (
               <Link
-                to={`/projects/${item.projectSlug}`}
+                to={caseStudyTo}
                 className="text-teal-700 underline-offset-2 hover:text-teal-800 hover:underline dark:text-teal-300 dark:hover:text-teal-200"
               >
                 {item.title}
@@ -105,7 +107,7 @@ const GitTimelineEntry = ({ item, index }: GitTimelineEntryProps) => {
 
       {item.projectSlug && (
         <Link
-          to={`/projects/${item.projectSlug}`}
+          to={caseStudyTo}
           className="mt-4 inline-flex items-center gap-1 text-sm font-semibold text-teal-700 hover:text-teal-800 dark:text-teal-400 dark:hover:text-teal-300"
         >
           Read case study

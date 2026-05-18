@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Award, Briefcase } from 'lucide-react';
+import { useSitePath } from '../../context/SiteRoutePrefixContext';
 import { projects } from '../../content/projects';
 import ProjectCard from './ProjectCard';
 import ExperienceItem from './ExperienceItem';
@@ -10,13 +11,15 @@ import { achievements } from '../../data/achievements';
 import AchievementCard from './AchievementCard';
 
 const Portfolio = () => {
+  const allWorkPath = useSitePath('/projects');
+  const experiencePath = useSitePath('/experience');
   return (
     <div className="mx-auto max-w-8xl space-y-20 px-0 py-12">
       <section id="featured-work">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <h2 className="text-4xl font-bold text-slate-900 dark:text-white">Featured work</h2>
           <Link
-            to="/projects"
+            to={allWorkPath}
             className="text-sm font-semibold text-teal-600 hover:text-teal-700 dark:text-teal-400 dark:hover:text-teal-300"
           >
             View all work →
@@ -36,7 +39,7 @@ const Portfolio = () => {
               <Briefcase className="text-blue-500" /> Work experience
             </h2>
             <Link
-              to="/experience"
+              to={experiencePath}
               className="text-sm font-semibold text-violet-600 hover:text-violet-700 dark:text-violet-400 dark:hover:text-violet-300"
             >
               View git log →

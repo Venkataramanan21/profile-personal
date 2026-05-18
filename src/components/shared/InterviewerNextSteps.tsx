@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
+import { useSitePath } from '../../context/SiteRoutePrefixContext';
 import { INTERVIEW_PATH_STEPS, type InterviewerStep } from '../../lib/interviewPath';
 import { useInterviewPath } from '../../hooks/useInterviewPath';
 
@@ -10,6 +11,7 @@ interface InterviewerNextStepsProps {
 
 const InterviewerNextSteps = ({ current, className = '' }: InterviewerNextStepsProps) => {
   const { pathTo } = useInterviewPath();
+  const homePath = useSitePath('/');
   const index = INTERVIEW_PATH_STEPS.findIndex((s) => s.id === current);
   const prev = index > 0 ? INTERVIEW_PATH_STEPS[index - 1] : null;
   const next = index < INTERVIEW_PATH_STEPS.length - 1 ? INTERVIEW_PATH_STEPS[index + 1] : null;
@@ -64,7 +66,7 @@ const InterviewerNextSteps = ({ current, className = '' }: InterviewerNextStepsP
         )}
         {!next && (
           <Link
-            to="/"
+            to={homePath}
             className="inline-flex items-center gap-2 text-sm font-semibold text-violet-600 hover:underline dark:text-violet-400"
           >
             Back to home overview

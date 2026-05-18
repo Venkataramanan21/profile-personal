@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
+import { useSitePath } from '../../context/SiteRoutePrefixContext';
 import { primaryNav, site } from '../../content/site';
 import ThemeToggle from '../shared/ThemeToggle';
 
@@ -11,8 +12,27 @@ const navLinkClass = ({ isActive }: { isActive: boolean }) =>
       : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-white'
   }`;
 
+function PrimaryNavItem({ item, onNavigate }: { item: (typeof primaryNav)[number]; onNavigate: () => void }) {
+  const to = useSitePath(item.path);
+  return (
+    <NavLink to={to} className={navLinkClass} end={item.path === '/'} onClick={onNavigate}>
+      {item.label}
+    </NavLink>
+  );
+}
+
+function MobileNavItem({ item, onNavigate }: { item: (typeof primaryNav)[number]; onNavigate: () => void }) {
+  const to = useSitePath(item.path);
+  return (
+    <NavLink to={to} className={navLinkClass} end={item.path === '/'} onClick={onNavigate}>
+      {item.label}
+    </NavLink>
+  );
+}
+
 const SiteHeader = () => {
   const [open, setOpen] = useState(false);
+  const homeTo = useSitePath('/');
 
   return (
     <header
@@ -22,7 +42,7 @@ const SiteHeader = () => {
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-6 py-3">
         <Link
-          to="/"
+          to={homeTo}
           className="shrink-0 font-semibold text-slate-900 dark:text-white"
           onClick={() => setOpen(false)}
         >
@@ -32,9 +52,7 @@ const SiteHeader = () => {
 
         <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
           {primaryNav.map((item) => (
-            <NavLink key={item.path} to={item.path} className={navLinkClass} end={item.path === '/'}>
-              {item.label}
-            </NavLink>
+            <PrimaryNavItem key={item.path} item={item} onNavigate={() => setOpen(false)} />
           ))}
         </nav>
 
@@ -60,14 +78,7 @@ const SiteHeader = () => {
           <ul className="flex flex-col gap-1">
             {primaryNav.map((item) => (
               <li key={item.path}>
-                <NavLink
-                  to={item.path}
-                  className={navLinkClass}
-                  end={item.path === '/'}
-                  onClick={() => setOpen(false)}
-                >
-                  {item.label}
-                </NavLink>
+                <MobileNavItem item={item} onNavigate={() => setOpen(false)} />
               </li>
             ))}
           </ul>

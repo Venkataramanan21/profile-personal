@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
+import { useSitePath } from '../../context/SiteRoutePrefixContext';
 
 interface PageHeaderProps {
   title: string;
@@ -8,18 +9,23 @@ interface PageHeaderProps {
   eyebrow?: string;
 }
 
+function BackToLink({ backTo }: { backTo: { label: string; path: string } }) {
+  const to = useSitePath(backTo.path);
+  return (
+    <Link
+      to={to}
+      className="mb-6 inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white/90 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:border-teal-500 hover:text-teal-700 dark:border-slate-600 dark:bg-slate-900/90 dark:text-slate-200 dark:hover:border-teal-500 dark:hover:text-teal-400"
+    >
+      <ArrowLeft size={16} />
+      {backTo.label}
+    </Link>
+  );
+}
+
 const PageHeader = ({ title, description, backTo, eyebrow }: PageHeaderProps) => {
   return (
     <header className="mb-10">
-      {backTo && (
-        <Link
-          to={backTo.path}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-slate-300/80 bg-white/90 px-4 py-2 text-sm font-medium text-slate-700 shadow-sm transition hover:border-teal-500 hover:text-teal-700 dark:border-slate-600 dark:bg-slate-900/90 dark:text-slate-200 dark:hover:border-teal-500 dark:hover:text-teal-400"
-        >
-          <ArrowLeft size={16} />
-          {backTo.label}
-        </Link>
-      )}
+      {backTo && <BackToLink backTo={backTo} />}
       {eyebrow && (
         <p className="mb-2 text-sm font-semibold uppercase tracking-widest text-teal-700 dark:text-teal-300">
           {eyebrow}

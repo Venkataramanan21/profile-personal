@@ -1,14 +1,17 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import {
   getInterviewPathFirstStepHref,
   isInterviewPathPromptDismissed,
   markInterviewPathPromptDismissed,
   type InterviewerStep,
 } from '../lib/interviewPath';
+import { SiteRoutePrefixContext } from '../context/SiteRoutePrefixContext';
+import { applySiteRoutePrefix } from '../lib/sitePaths';
 import { useInterviewPath } from './useInterviewPath';
 
 export function useInterviewPathStartPrompt(step: InterviewerStep) {
   const { isActive } = useInterviewPath();
+  const prefix = useContext(SiteRoutePrefixContext);
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -29,7 +32,10 @@ export function useInterviewPathStartPrompt(step: InterviewerStep) {
     setIsOpen(false);
   }, []);
 
-  const firstStepHref = getInterviewPathFirstStepHref();
+  const firstStepHref = useMemo(
+    () => applySiteRoutePrefix(prefix, getInterviewPathFirstStepHref()),
+    [prefix]
+  );
 
   return { isOpen, dismiss, firstStepHref };
 }

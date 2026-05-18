@@ -45,6 +45,16 @@ body {
     color 0.25s ease;
 }
 
+body:has(.site-3d-active) {
+  background: #040814;
+  background-image: none;
+}
+
+html.dark body:has(.site-3d-active) {
+  background: #040814;
+  background-image: none;
+}
+
 html.dark body {
   background-image: linear-gradient(108deg, #425f57, #cfff8d);
 }

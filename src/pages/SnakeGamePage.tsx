@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom';
 import { SnakeGame } from '../features/snake-game';
+import { useSitePath } from '../context/SiteRoutePrefixContext';
 
 export function SnakeGamePage() {
+  const labPath = useSitePath('/lab');
   return (
     <div className="min-h-screen text-slate-900 dark:text-slate-100">
       <div className="max-w-4xl mx-auto px-6 py-10 sm:py-14">
@@ -17,7 +19,7 @@ export function SnakeGamePage() {
             </p>
           </div>
           <Link
-            to="/lab"
+            to={labPath}
             className="inline-flex items-center justify-center rounded-full border-2 border-teal-600 px-4 py-2 font-semibold text-teal-800 transition hover:bg-teal-50 dark:text-teal-200 dark:hover:bg-teal-900/30"
           >
             Back to lab

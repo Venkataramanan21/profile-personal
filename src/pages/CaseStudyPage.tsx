@@ -3,6 +3,7 @@ import { getProjectBySlug } from '../content/projects';
 import PageHeader from '../components/shared/PageHeader';
 import ArchitectureDiagram from '../components/shared/ArchitectureDiagram';
 import InterviewerPathFooter from '../components/shared/InterviewerPathFooter';
+import { useSitePath } from '../context/SiteRoutePrefixContext';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { Zap } from 'lucide-react';
 
@@ -13,13 +14,14 @@ const listClass = 'list-disc space-y-2 pl-5 text-slate-600 dark:text-slate-300';
 const CaseStudyPage = () => {
   const { slug } = useParams<{ slug: string }>();
   const project = slug ? getProjectBySlug(slug) : undefined;
+  const projectsPath = useSitePath('/projects');
   usePageTitle(project?.title ?? 'Project');
 
   if (!project) {
     return (
       <div className="mx-auto max-w-3xl px-6 py-20 text-center">
         <h1 className="mb-4 text-2xl font-bold">Project not found</h1>
-        <Link to="/projects" className="font-semibold text-teal-600 hover:underline dark:text-teal-400">
+        <Link to={projectsPath} className="font-semibold text-teal-600 hover:underline dark:text-teal-400">
           ← Back to all work
         </Link>
       </div>

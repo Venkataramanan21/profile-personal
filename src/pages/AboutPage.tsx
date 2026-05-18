@@ -1,10 +1,13 @@
 import { Link } from 'react-router-dom';
 import { aboutContent } from '../content/about';
+import { useSitePath } from '../context/SiteRoutePrefixContext';
 import PageHeader from '../components/shared/PageHeader';
 import { usePageTitle } from '../hooks/usePageTitle';
 
 const AboutPage = () => {
   usePageTitle('About');
+  const homePath = useSitePath('/');
+  const resumePath = useSitePath('/resume');
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-12">
@@ -41,11 +44,11 @@ const AboutPage = () => {
 
       <p className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-600 dark:border-slate-700 dark:bg-slate-900/50 dark:text-slate-300">
         Screening this profile? Follow the path on the{' '}
-        <Link to="/" className="font-semibold text-teal-600 hover:underline dark:text-teal-400">
+        <Link to={homePath} className="font-semibold text-teal-600 hover:underline dark:text-teal-400">
           home page
         </Link>
         {' '}— case study, experience log, then{' '}
-        <Link to="/resume" className="font-semibold text-teal-600 hover:underline dark:text-teal-400">
+        <Link to={resumePath} className="font-semibold text-teal-600 hover:underline dark:text-teal-400">
           resume
         </Link>
         .

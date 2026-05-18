@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowUpRight, Zap } from 'lucide-react';
+import { useSitePath } from '../../context/SiteRoutePrefixContext';
 import type { Project } from '../../types/project';
 
 const ProjectCard = ({ project }: { project: Project }) => {
+  const to = useSitePath(`/projects/${project.slug}`);
   return (
-    <Link to={`/projects/${project.slug}`} className="block h-full">
+    <Link to={to} className="block h-full">
       <motion.article
         whileHover={{ y: -5 }}
         className="group relative h-full overflow-hidden rounded-xl border border-slate-100 bg-white p-6 shadow-lg dark:border-slate-700 dark:bg-slate-800"

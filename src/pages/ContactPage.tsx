@@ -3,11 +3,13 @@ import { Mail, ExternalLink } from 'lucide-react';
 import { socialsProfessional } from '../components/shared/SocialHover/SocialHover';
 import InterviewerPathFooter from '../components/shared/InterviewerPathFooter';
 import PageHeader from '../components/shared/PageHeader';
+import { useSitePath } from '../context/SiteRoutePrefixContext';
 import { usePageTitle } from '../hooks/usePageTitle';
 import { site } from '../content/site';
 
 const ContactPage = () => {
   usePageTitle('Contact');
+  const resumePath = useSitePath('/resume');
 
   return (
     <div className="mx-auto max-w-3xl px-6 py-12">
@@ -54,7 +56,7 @@ const ContactPage = () => {
           Download resume
         </a>
         {' '}or view the{' '}
-        <Link to="/resume" className="font-semibold text-teal-600 hover:underline dark:text-teal-400">
+        <Link to={resumePath} className="font-semibold text-teal-600 hover:underline dark:text-teal-400">
           online resume
         </Link>
         .
